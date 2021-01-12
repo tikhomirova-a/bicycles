@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Магазин велосипедов «Moon»|Главная страница</title>
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.min.css" rel="stylesheet">
+</head>
+<body class="page-body">
+  <header class="page-header">
+    <nav class="page-header__nav page-header__nav--nojs">
+      <ul>
+        <li>
+          <a href="#about-us">О нас</a>
+        </li>
+        <li>
+          <a href="#bicycle-types">Виды велосипедов</a>
+        </li>
+        <li>
+          <a href="#video">Видео про велосипеды</a>
+        </li>
+        <li>
+          <a href="#contacts">Контакты</a>
+        </li>
+      </ul>
+      <a class="page-header__logo" aria-label="Вы находитесь на главной странице магазина">
+        <img src="img/logo.svg" width="68" height="21" alt="Магазин велосипедов «Moon».">
+      </a>
+      <button type="button" aria-label="Открыть/Закрыть меню"></button>
+    </nav>
+    <h1>Мы продаем велосипеды</h1>
+    <p>Наш магазин отбирает только самые лучшие велосипеды для продажи</p>
+    <section class="page-header__feedback feedback">
+      <h2 class="visually-hidden">Форма обратной связи</h2>
+      <p>Заполните поля ниже и мы подберем велосипед Вашей мечты</p>
+      <form class="feedback__form" action="https://echo.htmlacademy.ru" method="post">
+        <label class="visually-hidden" for="input-name">Введите Ваше Имя</label>
+        <input id="input-name" type="text" placeholder="Введите Ваше Имя" name="feedback-name" required>
+        <label class="visually-hidden" for="input-tel">Введите Ваш номер телефона</label>
+        <input id="input-tel" type="tel" placeholder="Введите Ваш номер телефона" name="feedback-tel" required>
+        <button type="submit">Подобрать велосипед мечты</button>
+      </form>
+    </section>
+  </header>
+  <main></main>
+  <footer></footer>
+</body>
+</html>
