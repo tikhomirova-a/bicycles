@@ -4,10 +4,19 @@
   }
 }
 
+.feedback__form {
+  @media (max-width: $mobile-width-only) {
+    width: 87.5%;
+    max-width: 325px;
+    margin: 0 auto;
+  }
+}
+
 .feedback p {
   @include reset-text;
 
   margin-bottom: 20px;
+  max-width: 100%;
 
   font-weight: 600;
   font-size: 17px;
@@ -15,16 +24,21 @@
   text-align: center;
   letter-spacing: -0.005em;
 
-  @media (max-width: $mobile-width-only) {
+  @media (max-width: $tablet-width-only) {
+    max-width: 325px;
     margin-right: auto;
     margin-left: auto;
-    max-width: 87.5%;
-  }
 
-  @media (max-width: $tablet-width-only) {
     font-size: 18px;
     line-height: 156%;
     color: $basic-black;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    margin-right: auto;
+    margin-left: auto;
+    width: 87.5%;
+    max-width: 325px;
   }
 }
 
