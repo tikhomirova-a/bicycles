@@ -10,3 +10,24 @@
     padding: 75px 4.68% 70px;
   }
 }
+
+.page-main__contacts {
+  width: 66.46%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 250px;
+  padding-bottom: 95px;
+
+  background-color: $basic-white;
+
+  @media (max-width: $tablet-width-only) {
+    width: 90.88%;
+    padding-top: 155px;
+    padding-bottom: 50px;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    width: 100%;
+    padding-top: 120px;
+  }
+}
