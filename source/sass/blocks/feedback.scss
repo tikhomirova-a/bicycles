@@ -6,7 +6,7 @@
 
 .feedback__form {
   @media (max-width: $mobile-width-only) {
-    width: 87.5%;
+    //width: 87.5%;
     max-width: 325px;
     margin: 0 auto;
   }
@@ -37,7 +37,7 @@
   @media (max-width: $mobile-width-only) {
     margin-right: auto;
     margin-left: auto;
-    width: 87.5%;
+    width: 100%;
     max-width: 325px;
   }
 }

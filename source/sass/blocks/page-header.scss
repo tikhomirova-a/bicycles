@@ -55,8 +55,6 @@
 }
 
 .page-header__nav {
-  grid-column: 1/-1;
-  grid-row: 1/2;
   padding: 0 2.27%;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -87,8 +85,8 @@
   display: flex;
   flex-wrap: wrap;
   column-gap: 15.34%;
-  justify-content: space-evenly;
-
+  //justify-content: space-evenly;
+  justify-content: space-between;
   text-align: center;
   letter-spacing: -0.005em;
 
@@ -294,8 +292,8 @@
   @media (max-width: $tablet-width-only) {
     max-width: 100%;
     padding-top: 70px;
-    padding-right: 29%;
-    padding-left: 29%;
+    padding-right: 28.5%;
+    padding-left: 28.5%;
     margin-top: 0;
   }
 
