@@ -1,0 +1,12 @@
+.page-main__facts {
+  width: 100%;
+  padding: 150px 0 130px;
+
+  @media (max-width: $tablet-width-only) {
+    padding: 70px 13.8% 30px;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    padding: 75px 4.68% 70px;
+  }
+}

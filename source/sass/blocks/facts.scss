@@ -1,0 +1,88 @@
+.facts {
+  background-color: $basic-white;
+}
+
+.facts h2 {
+  @include reset-text;
+
+  margin-bottom: 50px;
+  padding: 0 30%;
+
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 100%;
+  letter-spacing: -0.005em;
+  text-align: center;
+  color: $accent-dark;
+
+  @media (max-width: $tablet-width-only) {
+    margin-bottom: 30px;
+    padding: 0 20%;
+
+    font-size: 24px;
+    line-height: 171%;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    padding: 0;
+  }
+}
+
+.facts ol {
+  @include reset-list;
+
+  display: flex;
+  flex-wrap: wrap;
+  width: 80.97%;
+  min-width: 1000px;
+  margin: 0 auto;
+
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 34px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  color: $basic-black;
+
+  @media (max-width: $tablet-width-only) {
+    width: 100%;
+    min-width: auto;
+    justify-content: space-between;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    display: block;
+    padding: 0 3.5%;
+
+    font-size: 18px;
+  }
+}
+
+.facts li {
+  flex: 0 1 25%;
+  margin: 0 auto;
+  max-width: 260px;
+
+  @media (max-width: $tablet-width-only) {
+    flex-basis: 50%;
+    margin: 0 0 40px;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    flex-basis: 100%;
+    max-width: 325px;
+    margin: 0 auto 35px;
+  }
+}
+
+.facts span {
+  display: block;
+  margin-bottom: 15px;
+
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 136%;
+  text-align: center;
+  letter-spacing: -1.27273px;
+  color: $accent-blue;
+}
