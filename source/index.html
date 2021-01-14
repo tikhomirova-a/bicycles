@@ -6,6 +6,32 @@
   <title>Магазин велосипедов «Moon»|Главная страница</title>
   <link href="css/normalize.css" rel="stylesheet">
   <link href="css/style.min.css" rel="stylesheet">
+  <!-- Pixel Glass -->
+  <style>
+    HTML {
+      background-repeat: no-repeat;
+      background-position:  50% 0;
+      /* Mobile layout by default */
+      background-image: url( "mockup/mobile.png" );
+    }
+    /* Tablet */
+    @media ( min-width: 768px ) {
+      HTML {
+        /* Tablet layout */
+        background-image: url( "mockup/tablet.png" );
+      }
+    }
+    /* Desktop */
+    @media ( min-width: 1024px ) {
+      HTML {
+        /* Desktop layout */
+        background-image: url( "mockup/desktop.png" );
+      }
+    }
+  </style>
+  <link href="../node_modules/pixel-glass/styles.css" rel="stylesheet">
+  <script src="../node_modules/pixel-glass/script.js"></script>
+  <!-- // Pixel Glass -->
 </head>
 <body class="page-body">
   <header class="page-header">
@@ -70,6 +96,38 @@
           Профессиональные консультации!
         </li>
       </ol>
+    </section>
+    <section class="page-main__types types">
+      <h2 id="bicycle-types">Виды велосипедов</h2>
+      <ul>
+        <li class="types__item">
+          <div>
+            <!-- 1x: 342px, 2x: 684px -->
+            <img src="img/road-bicycle-desktop@1x.jpg" width="342" height="503"
+                 srcset="img/road-bicycle-desktop@1x.jpg 1x, img/road-bicycle-desktop@2x.jpg 2x" alt="Велосипед с
+                 корзиной на руле на фоне кирпичной стены, увитой плющом.">
+          </div>
+          <h3>Дорожный велосипед</h3>
+        </li>
+        <li class="types__item">
+          <div>
+            <!-- 1x: 342px, 2x: 684px -->
+            <img src="img/mountain-bicycle-desktop@1x.jpg" width="342" height="566"
+                 srcset="img/mountain-bicycle-desktop@1x.jpg 1x, img/mountain-bicycle-desktop@2x.jpg 2x" alt="Велосипед
+                 на фоне гор и голубого неба.">
+          </div>
+          <h3>Горный велосипед</h3>
+        </li>
+        <li class="types__item">
+          <div>
+            <!-- 1x: 342px, 2x: 684px -->
+            <img src="img/children-bicycle-desktop@1x.jpg" width="342" height="513"
+                 srcset="img/children-bicycle-desktop@1x.jpg 1x, img/children-bicycle-desktop@2x.jpg 2x"
+                 alt="Маленький розовый велосипед с небольшой корзинкой на руле и сиденьем для игрушек на заднем крыле.">
+          </div>
+          <h3>Детский велосипед</h3>
+        </li>
+      </ul>
     </section>
     <section class="page-main__contacts contacts">
       <h2 id="contacts">Как нас найти?</h2>

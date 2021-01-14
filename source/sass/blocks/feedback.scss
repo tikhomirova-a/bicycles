@@ -27,6 +27,7 @@
   @media (max-width: $tablet-width-only) {
     max-width: 325px;
     margin-right: auto;
+    margin-bottom: 30px;
     margin-left: auto;
 
     font-size: 18px;
@@ -36,6 +37,7 @@
 
   @media (max-width: $mobile-width-only) {
     margin-right: auto;
+    margin-bottom: 20px;
     margin-left: auto;
     width: 100%;
     max-width: 325px;
@@ -54,6 +56,11 @@
   background-color: $basic-white;
   border: 1px solid #c9ccd4;
   border-radius: 4px;
+
+  @media (max-width: $mobile-width-only) {
+    padding-top: 12px;
+    padding-bottom: 10px;
+  }
 
   &:last-of-type {
     border-radius: 6px;

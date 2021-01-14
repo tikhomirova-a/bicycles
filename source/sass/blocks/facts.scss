@@ -72,6 +72,10 @@
     flex-basis: 100%;
     max-width: 325px;
     margin: 0 auto 35px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
