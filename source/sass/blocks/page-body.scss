@@ -1,6 +1,6 @@
 .page-body {
   min-height: 100%;
   min-width: 320px;
-  //display: grid;
-  //grid-template-rows: min-content 1fr min-content; // TODO
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
 }

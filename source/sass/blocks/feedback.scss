@@ -6,7 +6,6 @@
 
 .feedback__form {
   @media (max-width: $mobile-width-only) {
-    //width: 87.5%;
     max-width: 325px;
     margin: 0 auto;
   }
@@ -47,7 +46,7 @@
 .feedback__form input {
   width: 100%;
   margin-bottom: 20px;
-  padding: 13px 9.17% 11px;
+  padding: 12px 9% 10px;
 
   font-weight: 400;
   font-size: 15px;

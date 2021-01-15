@@ -1,0 +1,79 @@
+.heading {
+  flex: 0 1 44.66%;
+
+  @media (max-width: $tablet-width-only) {
+    padding-top: 135px;
+    padding-bottom: 80px;
+
+    background-color: #1e1e1e;
+    background-size: 100%;
+    background-image: url("../img/black-bike-bg-tablet@1x.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    @media (min-resolution: 2dppx) {
+      background-image: url("../img/black-bike-bg-tablet@2x.jpg");
+    }
+  }
+
+  @media (max-width: $mobile-width-only) {
+    padding-top: 120px;
+    padding-bottom: 70px;
+
+    background-image: url("../img/black-bike-bg-mobile@1x.jpg");
+    background-size: cover;
+
+    @media (min-resolution: 2dppx) {
+      background-image: url("../img/black-bike-bg-mobile@2x.jpg");
+    }
+  }
+}
+
+.heading h1 {
+  @include reset-text;
+
+  max-width: 90%;
+  margin-top: 46px;
+  margin-bottom: 27px;
+
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 139%;
+  letter-spacing: -0.005em;
+
+  @media (max-width: $tablet-width-only) {
+    margin: 0 auto 20px;
+    max-width: 68.35%;
+
+    font-size: 30px;
+    line-height: 140%;
+    text-align: center;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    max-width: 87.5%;
+  }
+}
+
+.heading p {
+  @include reset-text;
+
+  font-size: 20px;
+  line-height: 160%;
+  letter-spacing: -0.005em;
+
+  opacity: 0.8;
+
+  @media (max-width: $tablet-width-only) {
+    max-width: 435px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 178%;
+    text-align: center;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    width: 83%;
+    max-width: 435px;
+  }
+}

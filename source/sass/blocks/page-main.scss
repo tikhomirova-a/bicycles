@@ -1,3 +1,68 @@
+.page-main__heading-wrapper {
+  width: 61.1%;
+  min-width: 880px;
+  min-height: 825px;
+  margin: 0 auto;
+  padding-top: 323px;
+  padding-bottom: 240px;
+  display: flex;
+  justify-content: space-between;
+
+  color: $basic-white;
+
+  @media (max-width: $tablet-width-only) {
+    display: block;
+    width: 100%;
+    min-width: auto;
+    min-height: auto;
+    padding: 0;
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+    min-height: 825px;
+    content: "";
+
+    background-image: url("../img/black-bike-bg-desktop@1x.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-color: #202020;
+
+    @media (min-resolution: 2dppx) {
+      background-image: url("../img/black-bike-bg-desktop@2x.jpg");
+    }
+
+    @media (max-width: $tablet-width-only) {
+      display: none;
+    }
+  }
+}
+
+.page-main__feedback {
+  flex: 0 1 37%;
+  max-width: 92%;
+
+  @media (max-width: $tablet-width-only) {
+    max-width: 100%;
+    padding-top: 70px;
+    padding-right: 28.5%;
+    padding-left: 28.5%;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    padding-right: 5%;
+    padding-left: 5%;
+    max-width: 100%;
+  }
+}
+
 .page-main__facts {
   width: 100%;
   padding: 150px 0;
