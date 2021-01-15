@@ -1,4 +1,6 @@
 .contacts h2 {
+  @include reset-text;
+
   max-width: 58%;
   margin-right: auto;
   margin-bottom: 30px;
@@ -23,6 +25,8 @@
 }
 
 .contacts p {
+  @include reset-text;
+
   max-width: 555px;
   margin-right: auto;
   margin-bottom: 40px;

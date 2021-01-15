@@ -1,0 +1,127 @@
+.media {
+  background-color: $basic-dark;
+}
+
+.media h2 {
+  @include reset-text;
+
+  width: 25%;
+  min-width: 350px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 30px;
+  letter-spacing: -0.005em;
+  text-align: center;
+  color: $basic-white;
+
+  @media (max-width: $tablet-width-only) {
+    width: 38%;
+    min-width: auto;
+
+    font-size: 24px;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    width: 100%;
+
+    text-align: left;
+  }
+}
+
+.media p {
+  @include reset-text;
+
+  width: 25%;
+  min-width: 350px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 55px;
+
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: -0.005em;
+  color: $basic-white;
+  opacity: 0.7;
+
+  @media (max-width: $tablet-width-only) {
+    width: 55.98%;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    width: 100%;
+    min-width: auto;
+    margin-bottom: 50px;
+  }
+}
+
+.media div {
+  position: relative;
+
+  width: 64.5%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: -95px;
+
+  @media (max-width: $tablet-width-only) {
+    width: 65.49%;
+    margin-bottom: -85px;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    width: 100%;
+    margin-bottom: -45px;
+  }
+}
+
+.media img {
+  display: block;
+}
+
+.media button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 65px;
+  height: 65px;
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+  border: none;
+  background-color: $accent-blue;
+
+  cursor: pointer;
+
+  @media (min-width: 768px) and (max-width: $tablet-width-only) {
+    width: 90px;
+    height: 90px;
+  }
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 13px;
+    height: 18px;
+    content: "";
+
+    transform: translate(-50%, -50%);
+
+    background-image: url("../img/play.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    @media (min-width: 768px) and (max-width: $tablet-width-only) {
+      width: 18px;
+      height: 25px;
+
+      transform: translate(-40%, -55%);
+    }
+  }
+}
