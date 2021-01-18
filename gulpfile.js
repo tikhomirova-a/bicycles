@@ -45,19 +45,6 @@ gulp.task("css-normalize", function () {
     .pipe(server.stream());
 });
 
-// gulp.task("css-dev", function () {
-//   return gulp.src("source/sass/style.scss")
-//     .pipe(plumber())
-//     .pipe(sourcemap.init())
-//     .pipe(sass())
-//     .pipe(postcss([ autoprefixer() ]))
-//     .pipe(csso())
-//     .pipe(rename("style.min.css"))
-//     .pipe(sourcemap.write("."))
-//     .pipe(gulp.dest("source/css"))
-//     .pipe(server.stream());
-// });
-
 gulp.task("server", function () {
   server.init({
     server: "build/",
