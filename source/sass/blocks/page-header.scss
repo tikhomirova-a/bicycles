@@ -29,7 +29,9 @@
 }
 
 .page-header__nav {
-  padding: 0 2.27% 10px;
+  padding-right: 3%;
+  padding-bottom: 10px;
+  padding-left: 2.5%;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
@@ -59,7 +61,6 @@
   display: flex;
   flex-wrap: wrap;
   column-gap: 15.34%;
-  //justify-content: space-evenly;
   justify-content: space-between;
   text-align: center;
   letter-spacing: -0.005em;

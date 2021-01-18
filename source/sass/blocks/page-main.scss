@@ -52,8 +52,8 @@
   @media (max-width: $tablet-width-only) {
     max-width: 100%;
     padding-top: 70px;
-    padding-right: 28.5%;
-    padding-left: 28.5%;
+    padding-right: 28.9%;
+    padding-left: 28.9%;
   }
 
   @media (max-width: $mobile-width-only) {
@@ -72,13 +72,13 @@
   }
 
   @media (max-width: $mobile-width-only) {
-    padding: 70px 4.68% 85px;
+    padding: 70px 4.68% 80px;
   }
 }
 
 .page-main__types {
   padding-top: 150px;
-  padding-bottom: 145px;
+  padding-bottom: 150px;
 
   @media (max-width: $tablet-width-only) {
     padding-top: 50px;
@@ -121,7 +121,7 @@
   }
 
   @media (max-width: $mobile-width-only) {
-    padding-top: 120px;
+    padding-top: 118px;
     padding-right: 0;
     padding-left: 0;
   }
