@@ -1,35 +1,64 @@
 'use strict';
 
 (function () {
-  const ESCAPE = `Escape`;
   const body = document.querySelector(`.page-body`);
-  const header = body.querySelector(`.page-header`);
-  const headerNav = header.querySelector(`.page-header__nav`);
-  const menuToggle = headerNav.querySelector(`button`);
+  let header;
+  let headerNav;
+  let menuToggle;
+
+  const existsInPage = (node) => {
+    return body.contains(node);
+  };
+
+  if (existsInPage(body.querySelector(`.page-header`))) {
+    header = body.querySelector(`.page-header`);
+
+    if (existsInPage(body.querySelector(`.page-header__nav`))) {
+      headerNav = header.querySelector(`.page-header__nav`);
+
+      if (existsInPage(headerNav.querySelector(`button`))) {
+        menuToggle = headerNav.querySelector(`button`);
+      }
+    }
+  }
+
+  window.util = {
+    body,
+    header,
+    headerNav,
+    menuToggle,
+    existsInPage
+  };
+})();
+
+(function () {
+  const ESCAPE = `Escape`;
 
   const closeMenuInFlow = () => {
-    header.classList.remove(`page-header--nojs`);
-    headerNav.classList.remove(`page-header__nav--nojs`);
+    if (window.util.existsInPage(window.util.header) && window.util.existsInPage(window.util.headerNav)) {
+      window.util.header.classList.remove(`page-header--nojs`);
+      window.util.headerNav.classList.remove(`page-header__nav--nojs`);
+    }
   };
 
   closeMenuInFlow();
 
   const showMenu = () => {
-    headerNav.classList.add(`page-header__nav--open`);
-    body.classList.add(`page-body--modal-open`);
-    headerNav.addEventListener(`keydown`, onEscPress);
-    body.addEventListener(`click`, onOverlayClick);
+    window.util.headerNav.classList.add(`page-header__nav--open`);
+    window.util.body.classList.add(`page-body--modal-open`);
+    window.util.headerNav.addEventListener(`keydown`, onEscPress);
+    window.util.body.addEventListener(`click`, onOverlayClick);
   };
 
   const hideMenu = () => {
-    headerNav.classList.remove(`page-header__nav--open`);
-    body.classList.remove(`page-body--modal-open`);
-    headerNav.removeEventListener(`keydown`, onEscPress);
-    body.removeEventListener(`click`, onOverlayClick);
+    window.util.headerNav.classList.remove(`page-header__nav--open`);
+    window.util.body.classList.remove(`page-body--modal-open`);
+    window.util.headerNav.removeEventListener(`keydown`, onEscPress);
+    window.util.body.removeEventListener(`click`, onOverlayClick);
   };
 
   const toggleMenu = () => {
-    return headerNav.classList.contains(`page-header__nav--open`) ? hideMenu() : showMenu();
+    return window.util.headerNav.classList.contains(`page-header__nav--open`) ? hideMenu() : showMenu();
   };
 
   const onMenuTogglePress = (evt) => {
@@ -50,10 +79,11 @@
     }
   };
 
-  menuToggle.addEventListener(`click`, onMenuTogglePress);
+  if (window.util.existsInPage(window.util.menuToggle)) {
+    window.util.menuToggle.addEventListener(`click`, onMenuTogglePress);
+  }
 
   window.main = {
-    body,
     ESCAPE
   };
 })();
@@ -63,10 +93,24 @@
   const HttpRequestMethod = {
     POST: `POST`
   };
-  const main = window.main.body.querySelector(`main`);
-  const form = main.querySelector(`.feedback__form`);
-  const name = form.querySelector(`#input-name`);
-  const tel = form.querySelector(`#input-tel`);
+  let main;
+  let form;
+  let name;
+  let tel;
+
+  if (window.util.existsInPage(window.util.body.querySelector(`main`))) {
+    main = window.util.body.querySelector(`main`);
+
+    if (window.util.existsInPage(main.querySelector(`.feedback__form`))) {
+      form = main.querySelector(`.feedback__form`);
+
+      if (window.util.existsInPage(form.querySelector(`#input-name`))
+      && window.util.existsInPage(form.querySelector(`#input-tel`))) {
+        name = form.querySelector(`#input-name`);
+        tel = form.querySelector(`#input-tel`);
+      }
+    }
+  }
 
   const onNameInput = () => {
     if (name.value === ``) {
@@ -89,89 +133,24 @@
     tel.reportValidity();
   };
 
-  name.addEventListener(`input`, onNameInput);
-  tel.addEventListener(`input`, onTelInput);
+  if (window.util.existsInPage(name) && window.util.existsInPage(tel)) {
+    name.addEventListener(`input`, onNameInput);
+    tel.addEventListener(`input`, onTelInput);
+  }
 
   const resetForm = () => {
     name.value = ``;
     tel.value = ``;
   };
 
-  const showMessage = (message) => {
-    const loadingResult = document.createElement(`div`);
-    loadingResult.classList.add(`loading-message`);
-    loadingResult.style = `z-index: 1;`;
-    loadingResult.style.position = `fixed`;
-    loadingResult.style.top = `50%`;
-    loadingResult.style.left = `50%`;
-    loadingResult.style.transform = `translate(-50%, -50%)`;
-    loadingResult.style.width = `fit-content`;
-    loadingResult.style.padding = `20px 40px`;
-    loadingResult.style.fontSize = `18px`;
-    loadingResult.style.color = `#1f1f1f`;
-    loadingResult.style.textAlign = `center`;
-    loadingResult.textContent = message;
-    loadingResult.style.backgroundColor = `white`;
-    loadingResult.style.border = `2px solid #0ad9c6`;
-    loadingResult.style.borderRadius = `10px`;
-    main.insertAdjacentElement(`afterbegin`, loadingResult);
-
-    window.main.body.classList.add(`page-body--modal-open`);
-
-    loadingResult.addEventListener(`click`, onMessageClick);
-    document.addEventListener(`keydown`, onEscapePress);
-    document.addEventListener(`click`, onOverlayClick);
-  };
-
-  const hideMessage = () => {
-    main.querySelector(`div.loading-message`).remove();
-    window.main.body.classList.remove(`page-body--modal-open`);
-    document.removeEventListener(`keydown`, onEscapePress);
-    document.removeEventListener(`click`, onOverlayClick);
-  };
-
-  const onFormSuccess = () => {
-    resetForm();
-    showMessage(`Данные успешно отправлены`);
-  };
-
-  const onFormError = () => {
-    showMessage(`Ошибка отправки данных`);
-  };
-
-  const onMessageClick = (evt) => {
-    evt.preventDefault();
-    hideMessage();
-  };
-
-  const onEscapePress = (evt) => {
-    if (evt.key === window.main.ESCAPE) {
-      evt.preventDefault();
-      hideMessage();
-    }
-  };
-
-  const onOverlayClick = (evt) => {
-    if (evt.target !== main.querySelector(`.loading-message`)) {
-      evt.preventDefault();
-      hideMessage();
-    }
-  };
-
-  const upload = (data, onSuccess, onError) => {
+  const upload = (data) => {
     const xhr = new XMLHttpRequest();
     xhr.responseType = `json`;
 
     xhr.addEventListener(`load`, () => {
       if (xhr.status === 200) {
-        onSuccess();
-        return;
+        resetForm();
       }
-      onError();
-    });
-
-    xhr.addEventListener(`error`, () => {
-      onError();
     });
 
     xhr.open(HttpRequestMethod.POST, URL);
@@ -182,10 +161,12 @@
     if (!name.validity.valid || !tel.validity.valid) {
       evt.preventDefault();
     } else {
-      upload(new FormData(form), onFormSuccess, onFormError);
+      upload(new FormData(form));
       evt.preventDefault();
     }
   };
 
-  form.addEventListener(`submit`, onFormSubmit);
+  if (window.util.existsInPage(form)) {
+    form.addEventListener(`submit`, onFormSubmit);
+  }
 })();
