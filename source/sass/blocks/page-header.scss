@@ -85,6 +85,7 @@
     width: 100%;
     height: 100vh;
     padding: 100px 0 130px;
+    overflow: scroll;
   }
 }
 
@@ -185,6 +186,10 @@
     &:active::before,
     &:active::after {
       opacity: 1;
+    }
+
+    &.button-hide {
+      display: none;
     }
   }
 }

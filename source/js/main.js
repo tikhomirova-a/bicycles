@@ -5,6 +5,7 @@
   let header;
   let headerNav;
   let menuToggle;
+  let headerNavList;
 
   const existsInPage = (node) => {
     return body.contains(node);
@@ -19,6 +20,10 @@
       if (existsInPage(headerNav.querySelector(`button`))) {
         menuToggle = headerNav.querySelector(`button`);
       }
+
+      if (existsInPage(headerNav.querySelector(`ul`))) {
+        headerNavList = headerNav.querySelector(`ul`);
+      }
     }
   }
 
@@ -27,12 +32,14 @@
     header,
     headerNav,
     menuToggle,
+    headerNavList,
     existsInPage
   };
 })();
 
 (function () {
   const ESCAPE = `Escape`;
+  const FIRST_LI_PADDING = 50;
 
   const closeMenuInFlow = () => {
     if (window.util.existsInPage(window.util.header) && window.util.existsInPage(window.util.headerNav)) {
@@ -47,6 +54,7 @@
     window.util.headerNav.classList.add(`page-header__nav--open`);
     window.util.body.classList.add(`page-body--modal-open`);
     window.util.headerNav.addEventListener(`keydown`, onEscPress);
+    window.util.headerNavList.addEventListener(`scroll`, onOpenMenuScroll);
     window.util.body.addEventListener(`click`, onOverlayClick);
   };
 
@@ -54,6 +62,7 @@
     window.util.headerNav.classList.remove(`page-header__nav--open`);
     window.util.body.classList.remove(`page-body--modal-open`);
     window.util.headerNav.removeEventListener(`keydown`, onEscPress);
+    window.util.headerNavList.removeEventListener(`scroll`, onOpenMenuScroll);
     window.util.body.removeEventListener(`click`, onOverlayClick);
   };
 
@@ -82,6 +91,19 @@
   if (window.util.existsInPage(window.util.menuToggle)) {
     window.util.menuToggle.addEventListener(`click`, onMenuTogglePress);
   }
+
+  const hideButton = () => {
+    return window.util.menuToggle.classList.add(`button-hide`);
+  };
+
+  const showButton = () => {
+    return window.util.menuToggle.classList.remove(`button-hide`);
+  };
+
+  const onOpenMenuScroll = () => {
+    let scrollPosition = window.util.headerNavList.scrollTop;
+    return scrollPosition >= FIRST_LI_PADDING ? hideButton() : showButton();
+  };
 
   window.main = {
     ESCAPE
